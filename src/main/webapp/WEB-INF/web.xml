@@ -22,5 +22,14 @@
 		<url-pattern>/bs</url-pattern>
 	</servlet-mapping>	
 	
+	<servlet>
+		<servlet-class>kr.or.ddit.servlet.TimesServlet</servlet-class>
+		<servlet-name>TimesServlet</servlet-name>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TimesServlet</servlet-name>
+		<url-pattern>/timesServlet</url-pattern>
+	</servlet-mapping>	
+	
 
 </web-app>

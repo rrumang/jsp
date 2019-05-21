@@ -8,7 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 public class TimesServlet extends HttpServlet {
+	
+	private Logger logger = LoggerFactory.getLogger(TimesServlet.class);
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -17,9 +23,12 @@ public class TimesServlet extends HttpServlet {
 		resp.setContentType("text/html; charset=utf-8"); 
 		
 		// localhost/jsp/timesTables?param=6
-		String i = req.getParameter("i");
-		String j = req.getParameter("j");
-		//System.out.println("param : " + param);
+		String param = req.getParameter("i");
+		logger.debug("param : {}", param);
+		
+		
+		String param2 = req.getParameter("j");
+		logger.debug("param2 : {} ", param2);
 		
 		
 		PrintWriter pw = resp.getWriter();
@@ -29,9 +38,9 @@ public class TimesServlet extends HttpServlet {
 		pw.write("	</head>");
 		pw.write("	<body>");
 		pw.write("		<table>");
-								for(int z=1; z<Integer.parseInt(i); z++){
+								for(int z=1; z<Integer.parseInt(param); z++){
 		pw.write("					<tr>");						
-									for(int u=2; u<Integer.parseInt(j); u++){
+									for(int u=2; u<Integer.parseInt(param2); u++){
 		pw.write("						<td>" + u + "*" + z + "=" + u*z + "</td>");
 									}
 		pw.write("					</tr>");
