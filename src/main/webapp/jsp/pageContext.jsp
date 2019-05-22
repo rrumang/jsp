@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
+	<% 
 		out.write("pageContext.getOut().equals(out) :"+ pageContext.getOut().equals(out) +"<br>");
 	
 		out.write("pageContext.getPage().equals(page) :"+ pageContext.getPage().equals(page)+"<br>");
