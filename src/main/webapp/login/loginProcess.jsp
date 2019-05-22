@@ -20,26 +20,27 @@
 					for(String userId : userIds){%>
 						<%=userId %> <br>
 					<%}%> 
-	request.getParameter("password") : <%=request.getParameter("password") %> <br>
+	request.getParameter("password") : <%=request.getParameter("inputPassword") %> <br>
 	
 	
 	<h2>request객체의 getParameterMap</h2>
 	<%Map<String, String[]> parameterMap = request.getParameterMap();
 		//parameter : userId, password
 		String[] userIdsFromMap = parameterMap.get("userId");
-		String[] passwords = parameterMap.get("passwords");
+		String[] passwords = parameterMap.get("password");
 		
 		for(String userId : userIdsFromMap){%>
-			userIdfromMap : <%=userId %> <br>
+			userIdsFromMap : <%=userId %> <br>
 		<%} %>
 			
 		<%for(String password : passwords){%>
 			passwords : <%=password %> <br>
 		<%} %>
+		
 	<h2>request객체의 getParameterNames()</h2>
 	<%Enumeration<String> parameterNames = request.getParameterNames();
 		while(parameterNames.hasMoreElements()){%>
-		parameterNames : <%=parameterNames.nextElement() %> <br>
+			parameterNames : <%=parameterNames.nextElement() %> <br>
 	<%} %>
 	
 		
