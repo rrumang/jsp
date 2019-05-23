@@ -1,3 +1,5 @@
+<%@page import="java.io.BufferedReader"%>
+<%@page import="java.io.FileReader"%>
 <%@page import="java.io.IOException"%>
 <%@page import="java.io.FileInputStream"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -19,13 +21,15 @@
 	out.write("application.getRealPath(\"/res/190522.txt\") : " + application.getRealPath("/res/190522.txt"));
 	
 	try{
-		FileInputStream fin = new FileInputStream("d:/A_TeachingMaterial/6.JspSpring/workspace/jsp/src/main/webapp/res/190522.txt");
-		int ch;
+		FileReader fr = new FileReader(application.getRealPath("/res/190522.txt"));
+		BufferedReader br = new BufferedReader(fr);
 		
-		while((ch=fin.read()) != -1){
-			out.write((char)ch);
+		String tmp = "";
+		
+		for(int i=1; (tmp=br.readLine())!= null; i++){
+			out.write(tmp + "<br>");
 		}
-		fin.close();
+		br.close();
 	} catch (IOException e){
 		e.printStackTrace();
 	}
