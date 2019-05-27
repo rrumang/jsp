@@ -1,3 +1,4 @@
+<%@page import="kr.or.ddit.paging.model.PageVo"%>
 <%@page import="kr.or.ddit.user.model.UserVo"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -61,20 +62,51 @@
 						</div>
 
 						<a class="btn btn-default pull-right">사용자 등록</a>
-
+						<!-- 사용자수 : 105건
+							 페이지네이션 : 11건
+						 -->
 						<div class="text-center">
 							<ul class="pagination">
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
+							<% PageVo pageVo = (PageVo)request.getAttribute("pageVo");
+							int paginationSize = (Integer)request.getAttribute("paginationSize");
+									
+								if(pageVo.getPage() == 1){ %>
+									<li class="disabled">
+										<span>«</span>
+									</li>
+								<%} else {%>
+									<li>
+										<a href="<%=request.getContextPath()%>/userPagingList?page=<%=pageVo.getPage()-1 %>&pageSize=<%=pageVo.getPageSize()%>">«</a>
+									</li>
+								<%}
+									
+								// 내가 현재 어떤 페이지에 있는가?
+								//PageVo pageVo = (PageVo)request.getAttribute("pageVo");
+								//int paginationSize = (Integer)request.getAttribute("paginationSize");
+								for(int i=1; i<=paginationSize; i++ ){%>
+									<% if(pageVo.getPage() == i){%>
+										<li class="active">
+											<span><%=i %></span>
+										</li>
+									<%} else{%>
+										<li>
+											<a href="<%=request.getContextPath()%>/userPagingList?page=<%=i %>&pageSize=<%=pageVo.getPageSize()%>"><%=i %></a>
+										</li>
+									<%} %>
+								<%} %>
+								<%if(pageVo.getPage()!= paginationSize){ %>
+									<li>
+										<a href="<%=request.getContextPath()%>/userPagingList?page=<%=pageVo.getPage()+1 %>&pageSize=<%=pageVo.getPageSize()%>">»</a>
+									</li>
+								<%}else {%>
+									<li class="disabled">
+										<span>»</span>
+									</li>
+									<%} %>
 							</ul>
 						</div>
 					</div>
 				</div>
-
-
 			</div>
 		</div>
 	</div>

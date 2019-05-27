@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kr.or.ddit.user.model.UserVO;
+import kr.or.ddit.user.model.UserVo;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -83,7 +83,7 @@ public class LoginController extends HttpServlet {
 			
 			//session에 사용자 정보를 넣어둔다(사용빈도가 높기 때문에)
 			HttpSession session =  request.getSession();
-			session.setAttribute("USER_INFO", new UserVO("브라운", "brown", "곰"));
+			session.setAttribute("USER_INFO", new UserVo("브라운", "brown", "곰"));
 			
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/main.jsp");

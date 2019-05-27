@@ -1,19 +1,19 @@
 package kr.or.ddit.user.model;
 
-public class UserVO {
+public class UserVo {
 	private String name;
 	private String userId;
 	private String alias;
 	
 	
 	
-	public UserVO(String name, String userId, String alias) {
+	public UserVo(String name, String userId, String alias) {
 		this.name = name;
 		this.userId = userId;
 		this.alias = alias;
 	}
 	
-	public UserVO(){
+	public UserVo(){
 		
 	}
 	
@@ -38,7 +38,7 @@ public class UserVO {
 	
 	@Override
 	public String toString() {
-		return "UserVO [name=" + name + ", userId=" + userId + ", alias="
+		return "UserVo [name=" + name + ", userId=" + userId + ", alias="
 				+ alias + "]";
 	}
 	

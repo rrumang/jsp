@@ -1,4 +1,4 @@
-<%@page import="kr.or.ddit.user.model.UserVO"%>
+<%@page import="kr.or.ddit.user.model.UserVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -12,7 +12,7 @@
 			</button>
 			<a class="navbar-brand" href="#">JSP/SPRING header.jsp
 			
-			<%UserVO SESSION_USER = (UserVO)session.getAttribute("USER_INFO");
+			<%UserVo SESSION_USER = (UserVo)session.getAttribute("USER_INFO");
 				String userName = "";
 				if(SESSION_USER == null){
 					userName = "접속전입니다";
