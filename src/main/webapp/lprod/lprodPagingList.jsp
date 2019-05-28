@@ -1,3 +1,4 @@
+<%@page import="kr.or.ddit.lprod.model.LprodVo"%>
 <%@page import="kr.or.ddit.paging.model.PageVo"%>
 <%@page import="kr.or.ddit.user.model.UserVo"%>
 <%@page import="java.util.List"%>
@@ -34,23 +35,25 @@
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<div class="row">
 					<div class="col-sm-8 blog-main">
-						<h2 class="sub-header">사용자</h2>
+						<h2 class="sub-header">lprod</h2>
 						<div class="table-responsive">
 							<table class="table table-striped">
 								<tr>
-									<th>사용자 아이디</th>
-									<th>사용자 이름</th>
-									<th>사용자 별명</th>
+									<th>lprod_id</th>
+									<th>lprod_gu</th>
+									<th>lprod_nm</th>
 									<th>등록일시</th>
 								</tr>
 								<%
-									List<UserVo> userList = (List<UserVo>) request.getAttribute("userList");
-									for (UserVo user : userList) {
+									List<LprodVo> lprodList = (List<LprodVo>) request.getAttribute("lprodList");
+								%>
+								<%
+									for (LprodVo vo : lprodList) {
 								%>
 								<tr>
-									<td><%=user.getUserId()%></td>
-									<td><%=user.getName()%></td>
-									<td><%=user.getAlias()%></td>
+									<td><%=vo.getLprod_id()%></td>
+									<td><%=vo.getLprod_gu()%></td>
+									<td><%=vo.getLprod_nm()%></td>
 									<td></td>
 								</tr>
 								<%
@@ -74,7 +77,7 @@
 									</li>
 								<%} else {%>
 									<li>
-										<a href="<%=request.getContextPath()%>/userPagingList?page=<%=pageVo.getPage()-1 %>&pageSize=<%=pageVo.getPageSize()%>">«</a>
+										<a href="<%=request.getContextPath()%>/lprodPagingList?page=<%=pageVo.getPage()-1 %>&pageSize=<%=pageVo.getPageSize()%>">«</a>
 									</li>
 								<%}
 									
@@ -88,13 +91,13 @@
 										</li>
 									<%} else{%>
 										<li>
-											<a href="<%=request.getContextPath()%>/userPagingList?page=<%=i %>&pageSize=<%=pageVo.getPageSize()%>"><%=i %></a>
+											<a href="<%=request.getContextPath()%>/lprodPagingList?page=<%=i %>&pageSize=<%=pageVo.getPageSize()%>"><%=i %></a>
 										</li>
 									<%} %>
 								<%} %>
 								<%if(pageVo.getPage()!= paginationSize){ %>
 									<li>
-										<a href="<%=request.getContextPath()%>/userPagingList?page=<%=pageVo.getPage()+1 %>&pageSize=<%=pageVo.getPageSize()%>">»</a>
+										<a href="<%=request.getContextPath()%>/lprodPagingList?page=<%=pageVo.getPage()+1 %>&pageSize=<%=pageVo.getPageSize()%>">»</a>
 									</li>
 								<%}else {%>
 									<li class="disabled">

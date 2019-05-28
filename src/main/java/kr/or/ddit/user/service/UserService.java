@@ -63,9 +63,11 @@ public class UserService implements IuserService{
 	@Override
 	public Map<String, Object> userPagingList(PageVo pageVo) {
 		//1. List<UserVo>, userCnt를 필드로 하는 vo
+		
 		//2. List<Object> resultList = new ArrayList<Object>();
 		//resultList.add(userList);
 		//resultList.add(usersCnt);
+		
 		//3.Map<String, Object> resultMap = new HashMap<String, Object>();
 		//resultMap.put("userList", userList);
 		//resultMap.put("usersCnt", usersCnt)

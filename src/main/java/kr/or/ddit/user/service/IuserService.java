@@ -38,4 +38,5 @@ public interface IuserService {
 	* Method 설명 :사용자 페이징 리스트 조회
 	 */
 	Map<String, Object> userPagingList(PageVo pageVo);
+	
 }
