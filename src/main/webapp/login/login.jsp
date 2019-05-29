@@ -42,16 +42,16 @@
     			//만약에 rememberme 체크박스가 체크되어 있는경우
     			//사용자 아이디값을 userId 쿠키로 저장
     			//true값을 remembeme cookie값으로 저장
-    			if($("#rememberme").is(":checked")){
+//     			if($("#rememberme").is(":checked")){
     				//Cookies.set("userId", $("#userId").val(), {expires:30});
     				//Cookies.set("rememberme", "true", {expires:30});
     				
     			//만약에 rememberme 체크박스가 헤제되어 있는경우
     			//userId, rememberme cookie 값을 삭제
-    			}else{
+//     			}else{
 //     				Cookies.remove("userId");
 //     				Cookies.remove("rememberme");
-    			}
+//    			}
     			//로그인 요청을 서버로 전송
     			$("#frm").submit();
     		});

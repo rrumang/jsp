@@ -79,11 +79,9 @@ public class LoginController extends HttpServlet {
 	// 로그인 요청을 처리
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		logger.debug("parameter rememberme : {}",
-				request.getParameter("rememberme"));
+		logger.debug("parameter rememberme : {}", request.getParameter("rememberme"));
 		logger.debug("parameter userId : {}", request.getParameter("userId"));
-		logger.debug("parameter password : {}",
-				request.getParameter("password"));
+		logger.debug("parameter password : {}",	request.getParameter("password"));
 
 		// 사용자 파라미터 userId, password
 		String userId = request.getParameter("userId");
@@ -121,7 +119,7 @@ public class LoginController extends HttpServlet {
 					// 로그인화면으로 이동 : localhost/jsp/login
 					// 현재상황에서 /jsp/login url로 dispatch방식으로 위임이 불가
 					// request.getMethod(); //GET, POST
-
+			
 			response.sendRedirect(request.getContextPath() + "/login");
 
 		}
