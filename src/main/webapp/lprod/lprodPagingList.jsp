@@ -4,6 +4,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,21 +45,13 @@
 									<th>lprod_nm</th>
 									<th>등록일시</th>
 								</tr>
-								<%
-									List<LprodVo> lprodList = (List<LprodVo>) request.getAttribute("lprodList");
-								%>
-								<%
-									for (LprodVo vo : lprodList) {
-								%>
-								<tr>
-									<td><%=vo.getLprod_id()%></td>
-									<td><%=vo.getLprod_gu()%></td>
-									<td><%=vo.getLprod_nm()%></td>
-									<td></td>
-								</tr>
-								<%
-									}
-								%>
+								<c:forEach items="${lprodList }" var="lprod">
+									<tr>
+										<td>${lprod.lprod_id }</td>
+										<td>${lprod.lprod_gu }</td>
+										<td>${lprod.lprod_nm }</td>
+									</tr>
+								</c:forEach>
 							</table>
 						</div>
 
@@ -77,7 +70,7 @@
 									</li>
 								<%} else {%>
 									<li>
-										<a href="<%=request.getContextPath()%>/lprodPagingList?page=<%=pageVo.getPage()-1 %>&pageSize=<%=pageVo.getPageSize()%>">«</a>
+										<a href="${pageContext.request.contextPath}/lprodPagingList?page=<%=pageVo.getPage()-1 %>&pageSize=<%=pageVo.getPageSize()%>">«</a>
 									</li>
 								<%}
 									
@@ -91,13 +84,13 @@
 										</li>
 									<%} else{%>
 										<li>
-											<a href="<%=request.getContextPath()%>/lprodPagingList?page=<%=i %>&pageSize=<%=pageVo.getPageSize()%>"><%=i %></a>
+											<a href="${pageContext.request.contextPath}/lprodPagingList?page=<%=i %>&pageSize=<%=pageVo.getPageSize()%>"><%=i %></a>
 										</li>
 									<%} %>
 								<%} %>
 								<%if(pageVo.getPage()!= paginationSize){ %>
 									<li>
-										<a href="<%=request.getContextPath()%>/lprodPagingList?page=<%=pageVo.getPage()+1 %>&pageSize=<%=pageVo.getPageSize()%>">»</a>
+										<a href="${pageContext.request.contextPath}/lprodPagingList?page=<%=pageVo.getPage()+1 %>&pageSize=<%=pageVo.getPageSize()%>">»</a>
 									</li>
 								<%}else {%>
 									<li class="disabled">
