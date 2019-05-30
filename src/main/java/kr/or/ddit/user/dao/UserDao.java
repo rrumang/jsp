@@ -9,10 +9,6 @@ import kr.or.ddit.user.service.IuserService;
 import kr.or.ddit.user.service.UserService;
 
 import org.apache.ibatis.session.SqlSession;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,25 +16,25 @@ public class UserDao implements IuserDao {
 	private static final Logger logger = LoggerFactory
 			.getLogger(UserDao.class);
 	
-	@BeforeClass
+	//@BeforeClass
 	public static void beforeClass(){
 		logger.debug("beforeClass");
 	}
 	
 	private IuserService userService;
 	
-	@Before
+	//@Before
 	public void setup(){
 		userService = new UserService();
 		logger.debug("setup");
 	}
 	
-	@After
+	//@After
 	public void teardown(){
 		logger.debug("teardown");
 	}
 	
-	@AfterClass
+	//@AfterClass
 	public static void afterClass(){
 		logger.debug("afterClass");
 	}
