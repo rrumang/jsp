@@ -5,6 +5,13 @@ public class UserVo {
 	private String userId;
 	private String alias;
 	private String pass;
+	private String addr1;
+	private String addr2;
+	private String path;
+	private String filename;
+	private String zipcd;
+	private String birth;
+	
 	
 	
 	
@@ -13,6 +20,13 @@ public class UserVo {
 		this.userId = userId;
 		this.alias = alias;
 		this.pass = pass;
+		this.addr1 = addr1;
+		this.addr2 = addr2;
+		this.birth = birth;
+		this.path = path;
+		this.filename = filename;
+		this.zipcd = zipcd;
+		
 	}
 	
 	public UserVo(){
@@ -51,11 +65,63 @@ public class UserVo {
 		this.pass = pass;
 	}
 
+	public String getAddr1() {
+		return addr1;
+	}
+
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
+	}
+
+	public String getAddr2() {
+		return addr2;
+	}
+
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+
+	public String getZipcd() {
+		return zipcd;
+	}
+
+	public void setZipcd(String zipcd) {
+		this.zipcd = zipcd;
+	}
+
+	public String getBirth() {
+		return birth;
+	}
+
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+
 	@Override
 	public String toString() {
 		return "UserVo [name=" + name + ", userId=" + userId + ", alias="
-				+ alias + ", pass=" + pass + "]";
+				+ alias + ", pass=" + pass + ", addr1=" + addr1 + ", addr2="
+				+ addr2 + ", path=" + path + ", filename=" + filename
+				+ ", zipcd=" + zipcd + ", birth=" + birth + "]";
 	}
+
+	
 	
 	
 	

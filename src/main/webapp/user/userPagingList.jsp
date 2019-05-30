@@ -20,6 +20,30 @@
 
 <!-- css, js -->
 <%@include file="/common/basicLib.jsp" %>
+<style>
+	.userTr:hover{
+		cursor : pointer;
+	}
+</style>
+<script>
+	$(document).ready(function(){
+		$(".userTr").on("click", function(){
+			console.log("userTr click");
+			//userId를 획득하는 방법
+			//$(this).find(".userId").text();
+			//$(this).data("userid"); ==> //밑에 <tr class="userTr" data-userid="${user.userId }" data-name="${user.name }">
+			//사용자 아이드를 #userId 값으로 설정해주고
+			var userId = $(this).find(".userId").text();
+			$("#userId").val(userId);
+			
+			//#frm응 이용하여 submit();
+			$("#frm").submit();
+		});
+		$("#plus").on("click",function(){
+			
+		});
+	});
+</script>
 </head>
 
 <body>
@@ -36,6 +60,11 @@
 				<div class="row">
 					<div class="col-sm-8 blog-main">
 						<h2 class="sub-header">사용자</h2>
+						
+						<form action="${pageContext.request.contextPath }/user" id="frm">
+							<input type="hidden" id="userId" name="userId"/>
+						</form>
+						
 						<div class="table-responsive">
 							<table class="table table-striped">
 								<tr>
@@ -46,8 +75,8 @@
 								</tr>
 								<!--향상된 포문 -->
 								<c:forEach items="${userList }" var="user" varStatus="status">
-									<tr>
-										<td>${status.index}/${status.count} / ${user.userId }</td>
+									<tr class="userTr" data-userid="${user.userId }" data-name="${user.name }">
+										<td class="userId">${user.userId }</td>
 										<td>${user.name }</td>
 										<td>${user.alias }</td>
 									</tr>
@@ -55,7 +84,7 @@
 							</table>
 						</div>
 
-						<a class="btn btn-default pull-right">사용자 등록</a>
+						<a id="plus" class="btn btn-default pull-right">사용자 등록</a>
 						<!-- 사용자수 : 105건
 							 페이지네이션 : 11건
 						 -->
