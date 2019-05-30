@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.or.ddit.user.model.UserVo;
+import kr.or.ddit.user.service.IuserService;
+import kr.or.ddit.user.service.UserService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,6 +40,14 @@ import org.slf4j.LoggerFactory;
 // web.xml servlet, servlet-mapping --> java annotation
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
+	
+	private IuserService service;
+	
+	@Override
+	public void init() throws ServletException {
+		service  = new UserService();
+	}
+	
 	private static final Logger logger = LoggerFactory
 			.getLogger(LoginController.class);
 
@@ -47,9 +57,10 @@ public class LoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		logger.debug("LoginController doGet()");
-
-		for (Cookie cookie : request.getCookies()) {
-			logger.debug("cookie : {}, {}", cookie.getName(), cookie.getValue());
+		if(request.getCookies() != null){
+			for (Cookie cookie : request.getCookies()) {
+				logger.debug("cookie : {}, {}", cookie.getName(), cookie.getValue());
+			}
 		}
 
 		// 로그인화면을 처리해줄 누군가??에게 위임
@@ -79,6 +90,7 @@ public class LoginController extends HttpServlet {
 	// 로그인 요청을 처리
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		//UserService service = new UserService();
 		logger.debug("parameter rememberme : {}", request.getParameter("rememberme"));
 		logger.debug("parameter userId : {}", request.getParameter("userId"));
 		logger.debug("parameter password : {}",	request.getParameter("password"));
@@ -92,7 +104,8 @@ public class LoginController extends HttpServlet {
 		// -> userId:brown이고 password:brown1234라는 값이면 통과, 그외 값 불일치
 
 		// 일치하면...(로그인 성공) : main화면으로 이동
-		if (userId.equals("brown") && password.equals("brown1234")) {
+		UserVo vo = service.getUser(userId);
+		if (vo!=null && password.equals(vo.getPass())) {
 
 			// remember 파라미터가 존재할 경우 userId, rememberme cookie를 설정해준다.
 			// remember 파라미터가 존재하지 않을 경우 userId, rememberme cookie를 삭제해준다.
@@ -119,8 +132,8 @@ public class LoginController extends HttpServlet {
 					// 로그인화면으로 이동 : localhost/jsp/login
 					// 현재상황에서 /jsp/login url로 dispatch방식으로 위임이 불가
 					// request.getMethod(); //GET, POST
-			
-			response.sendRedirect(request.getContextPath() + "/login");
+			request.getRequestDispatcher("/login/login.jsp").forward(request, response);
+			//response.sendRedirect(request.getContextPath() + "/login");
 
 		}
 
