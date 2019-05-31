@@ -41,10 +41,5 @@ public class LprodService implements IlprodService {
 		return resultMap;
 	}
 
-	@Override
-	public int lprodCnt() {
-		int lprodCnt = dao.lprodCnt();
-		return lprodCnt;
-	}
 
 }

@@ -39,13 +39,4 @@ public interface IlprodService {
 	 */
 	Map<String, Object> lprodPagingList(PageVo pageVo);
 	
-	/**
-	 * 
-	* Method : lprodCnt
-	* 작성자 : PC08
-	* 변경이력 :
-	* @return
-	* Method 설명 : lprod 전체수 조회
-	 */
-	int lprodCnt();
 }
