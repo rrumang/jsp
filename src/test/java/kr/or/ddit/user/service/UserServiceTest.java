@@ -3,6 +3,8 @@ package kr.or.ddit.user.service;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +25,9 @@ public class UserServiceTest {
 	private static final Logger logger = LoggerFactory
 			.getLogger(UserServiceTest.class);
 	
-	private IuserService userService;
+	private IuserService userService = new UserService();
+	
+
 
 	@Test
 	public void userListTest() {
@@ -69,8 +73,7 @@ public class UserServiceTest {
 		
 		/***Then***/
 		assertNotNull(userList);
-		assertEquals(10, userList);
-		assertEquals(11, paginationSize);
+		assertEquals(10, userList.size());
 
 	}
 	
@@ -96,6 +99,35 @@ public class UserServiceTest {
 		assertEquals(11, (int)paginationSize);
 
 	}
+	
+	/**
+	 * 
+	* Method : insertUserTest
+	* 작성자 : PC08
+	* 변경이력 :
+	* Method 설명 : 사용자 등록 테스트
+	 */
+	@Test
+	public void insertUserTest() throws ParseException{
+		/***Given***/
+		//사용자정보를 담고있는 vo객체 준비
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		UserVo userVo = new UserVo("대덕쓰", "userTest",  "중앙쓰", "userTest1234", "영민쓰", "204호", "34940", sdf.parse("2019-05-31"));
+
+		/***When***/
+		//userDao.insertUser()
+		int insertCnt = userService.insertUser(userVo);
+
+		/***Then***/
+		//insertCnt(1)
+		assertEquals(1, insertCnt);
+		
+		//data삭제
+		//useDao.deleteUser(userId);
+		userService.deleteUser(userVo.getUserId());
+	}	
 	
 
 }

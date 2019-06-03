@@ -39,9 +39,6 @@
 			//#frm응 이용하여 submit();
 			$("#frm").submit();
 		});
-		$("#plus").on("click",function(){
-			
-		});
 	});
 </script>
 </head>
@@ -84,7 +81,7 @@
 							</table>
 						</div>
 
-						<a id="plus" class="btn btn-default pull-right">사용자 등록</a>
+						<a href="${pageContext.request.contextPath }/userForm" class="btn btn-default pull-right">사용자 등록</a>
 						<!-- 사용자수 : 105건
 							 페이지네이션 : 11건
 						 -->
@@ -146,7 +143,7 @@
 <!-- 										<span>»</span> -->
 <!-- 									</li> -->
 <%-- 									<%} %> --%>
-									<c:choose>
+			 						<c:choose>
 									<c:when test="${pageVo.page == paginationSize }">
 										<li class="disabled"><span>»</span></li>
 									</c:when>

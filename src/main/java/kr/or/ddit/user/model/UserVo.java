@@ -1,5 +1,7 @@
 package kr.or.ddit.user.model;
 
+import java.util.Date;
+
 public class UserVo {
 	private String name;
 	private String userId;
@@ -10,25 +12,31 @@ public class UserVo {
 	private String path;
 	private String filename;
 	private String zipcd;
-	private String birth;
+	private Date birth;
 	
 	
-	
-	
-	public UserVo(String name, String userId, String alias) {
+	public UserVo(String name, String userId, String alias, String pass,
+			String addr1, String addr2, String zipcd, Date birth) {
 		this.name = name;
 		this.userId = userId;
 		this.alias = alias;
 		this.pass = pass;
 		this.addr1 = addr1;
 		this.addr2 = addr2;
-		this.birth = birth;
-		this.path = path;
-		this.filename = filename;
 		this.zipcd = zipcd;
-		
+		this.birth = birth;
 	}
 	
+	
+
+	public UserVo(String name, String userId, String alias) {
+		this.name = name;
+		this.userId = userId;
+		this.alias = alias;
+	}
+
+
+
 	public UserVo(){
 		
 	}
@@ -105,11 +113,11 @@ public class UserVo {
 		this.zipcd = zipcd;
 	}
 
-	public String getBirth() {
+	public Date getBirth() {
 		return birth;
 	}
 
-	public void setBirth(String birth) {
+	public void setBirth(Date birth) {
 		this.birth = birth;
 	}
 
