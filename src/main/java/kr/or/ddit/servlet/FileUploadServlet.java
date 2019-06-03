@@ -2,9 +2,6 @@ package kr.or.ddit.servlet;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Collection;
-import java.util.Date;
 import java.util.UUID;
 
 import javax.servlet.ServletException;
@@ -50,32 +47,31 @@ public class FileUploadServlet extends HttpServlet {
 			String contentDispositin = part.getHeader("content-disposition");
 			String fileName = PartUtil.getFileName(contentDispositin);
 			String ext = PartUtil.getExt(fileName);
-			ext = ext.equals("") ? "" : "."+ext;
 			
 			//년도안에 해당하는 폴더가 있는지, 년도안에 월에 해당하는 폴더가 있는지
-			Date dt = new Date();
-			SimpleDateFormat yyyyMMSdf = new SimpleDateFormat("yyyyMM");
+//			Date dt = new Date();
+//			SimpleDateFormat yyyyMMSdf = new SimpleDateFormat("yyyyMM");
+//			
+//			String yyyyMM = yyyyMMSdf.format(dt);
+//			
+//			String yyyy = yyyyMM.substring(0,4);
+//			String mm = yyyyMM.substring(4,6);
 			
-			String yyyyMM = yyyyMMSdf.format(dt);
-			
-			String yyyy = yyyyMM.substring(0,4);
-			String mm = yyyyMM.substring(4,6);
+			String uploadPath = PartUtil.getUploadPath();
+			File uploadFolder = new File(uploadPath);
 			
 			
-			File yyyyFolder = new File("d:\\upload\\" + yyyy);
+			File yyyyFolder = new File(uploadPath);
 			//신규년도로 넘어갔을 때 해당 년도의 폴더를 생성한다.
 			if(!yyyyFolder.exists())
 				yyyyFolder.mkdir();
 			
 			//월에 해당하는 폴더가 있는지 확인
-			File mmFolder = new File("d:\\upload\\"+ yyyy + "\\" + mm);
+			File mmFolder = new File(uploadPath);
 			if(!mmFolder.exists())
 				mmFolder.mkdir();
 			
 			
-			String uploadPath = "d:\\upload\\" + yyyy + File.separator + mm;
-			
-			File uploadFolder = new File(uploadPath);
 			if(uploadFolder.exists()){
 				//파일 디스크에 쓰기
 				part.write(uploadPath + File.separator + UUID.randomUUID().toString() + ext);

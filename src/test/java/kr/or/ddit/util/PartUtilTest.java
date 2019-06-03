@@ -8,9 +8,9 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class PartUstilTest {
+public class PartUtilTest {
 	private static final Logger logger = LoggerFactory
-			.getLogger(PartUstilTest.class);
+			.getLogger(PartUtilTest.class);
 
 	@Test
 	public void getFileNameTest() {
@@ -53,10 +53,9 @@ public class PartUstilTest {
 		String ext3 = PartUtil.getExt(filename3);
 
 		/***Then***/
-		assertEquals("png", ext);
-		assertEquals("png", ext2);
+		assertEquals(".png", ext);
+		assertEquals(".png", ext2);
 		assertEquals("", ext3);
-		
 
 	}
 	
