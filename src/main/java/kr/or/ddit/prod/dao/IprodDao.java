@@ -1,5 +1,6 @@
 package kr.or.ddit.prod.dao;
 
-public interface IprodDao {
+import java.util.List;
 
+public interface IprodDao {
 }
