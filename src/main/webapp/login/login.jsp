@@ -102,7 +102,7 @@
 <%--     																				<%//pageContext.getRequest().getContextPath()%> --%>
 
       <form id="frm" class="form-signin" action="${pageContext.request.contextPath}/login" method="post">
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading">Please sign in ${requestMap}</h2>
         
         <label for="userId" class="sr-only">userId</label>
         <input type="text" id="userId" name="userId" value="${param.userId}" class="form-control" placeholder="userId" required>
