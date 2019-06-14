@@ -11,10 +11,10 @@
 
 <script>
 $(document).ready(function(){
-	$("#locale").val("${locale}");
 	$("#locale").on("change", function(){
 		$("#frm").submit();
 	});
+	$("#locale").val("${locale}");
 });
 </script>
 </head>

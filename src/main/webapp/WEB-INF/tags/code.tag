@@ -1,3 +1,7 @@
+<%@tag import="kr.or.ddit.prod.model.ProdVo"%>
+<%@tag import="java.util.List"%>
+<%@tag import="kr.or.ddit.prod.dao.ProdDao"%>
+<%@tag import="kr.or.ddit.prod.dao.IprodDao"%>
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@tag import="java.sql.DriverManager"%>
 <%@tag import="java.sql.Connection"%>
@@ -6,7 +10,7 @@
 <%@ attribute name="code" required="true"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 code : ${code } <br>
-<%
+<%-- <%
 	String code = (String)jspContext.getAttribute("code");
 	final String driver = "oracle.jdbc.driver.OracleDriver";
 	final String url = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -35,4 +39,23 @@ code : ${code } <br>
 	}catch(Exception e){
 		e.printStackTrace();
 	}
+%> --%>
+<%
+	IprodDao dao = new ProdDao();
+	jspContext.setAttribute("prodList", dao.prodList(code));
+
 %>
+	<select>
+		<c:forEach items="${prodList }" var="prod">
+			<option value="${prod.prod_id }">${prod.prod_name }</option>
+		</c:forEach>
+	</select>
+
+
+
+
+
+
+
+
+
