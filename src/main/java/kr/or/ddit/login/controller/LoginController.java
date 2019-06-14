@@ -58,6 +58,8 @@ public class LoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		logger.debug("LoginController doGet()");
+		logger.debug("parameter UNT_CD : {}", request.getParameter("UNT_CD"));
+		
 		if(request.getCookies() != null){
 			for (Cookie cookie : request.getCookies()) {
 				logger.debug("cookie : {}, {}", cookie.getName(), cookie.getValue());
@@ -68,15 +70,8 @@ public class LoginController extends HttpServlet {
 		// 단순 login화면을 html로 응답을 생성해주는 작업이 필요
 		// /login/login.jsp위임 --> 별도의 상태변경이 없기때문에 dispatch방식으로 위임
 
-		// RequestDispatcher rd =
-		// request.getRequestDispatcher("/login/login.jsp");
-		// rd.forward(request, response);
-
-		// request.getRequestDispatcher("/login/login.jsp").forward(request,
-		// response);
 
 		// session에 사용자 정보가 있을경우 --> main화면으로 이동
-
 		// session에 사용자 정보가 없을 경우 --> 기존로직
 		HttpSession session = request.getSession();
 		if (session.getAttribute("USER_INFO") == null) {
@@ -92,6 +87,7 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		//UserService service = new UserService();
+		logger.debug("parameter UNT_CD : {}", request.getParameter("UNT_CD"));
 		logger.debug("parameter rememberme : {}", request.getParameter("rememberme"));
 		logger.debug("parameter userId : {}", request.getParameter("userId"));
 		logger.debug("parameter password : {}",	request.getParameter("password"));

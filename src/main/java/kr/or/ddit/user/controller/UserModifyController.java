@@ -60,7 +60,7 @@ public class UserModifyController extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 
 		logger.debug("dopost실행");
-		request.setCharacterEncoding("utf-8"); // 설정하지않으면 한글깨짐
+		//request.setCharacterEncoding("utf-8"); // 설정하지않으면 한글깨짐
 		String userId = request.getParameter("userId");
 		String name = request.getParameter("name");
 		String alias = request.getParameter("alias");
@@ -76,15 +76,6 @@ public class UserModifyController extends HttpServlet {
 		
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-		logger.debug(userId);
-		logger.debug(name);
-		logger.debug(alias);
-		logger.debug(addr1);
-		logger.debug(addr2);
-		logger.debug(zipcd);
-		logger.debug(birth);
-		logger.debug(pass);
 
 		UserVo vo = null;
 

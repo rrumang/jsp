@@ -88,7 +88,7 @@
 						
 							
 						
-						<form id="frm" class="form-horizontal" role="form" action="${pageContext.request.contextPath }/userModify" method="post"  enctype="multipart/form-data">
+						<form id="frm" class="form-horizontal" role="form" action="${cp }/userModify" method="post"  enctype="multipart/form-data">
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">사용자사진</label>
 								<div class="col-sm-10">

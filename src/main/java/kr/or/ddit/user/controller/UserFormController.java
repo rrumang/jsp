@@ -49,7 +49,7 @@ public class UserFormController extends HttpServlet {
 	
 	//사용자 등록 요청처리
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8"); //설정하지않으면 한글깨짐
+		//request.setCharacterEncoding("utf-8"); //설정하지않으면 한글깨짐
 		
 		logger.debug("UserForm dopost");
 		//사용자가 보낸 파라미터를 사용해서 UserVo 인스턴스를 만들어서 s

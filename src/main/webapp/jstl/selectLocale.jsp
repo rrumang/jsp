@@ -20,7 +20,7 @@ $(document).ready(function(){
 </head>
 <body>
 <h2>select locale</h2>
-<form  action="${pageContext.request.contextPath }/selectLocale" id="frm" method="post">
+<form  action="${cp }/selectLocale" id="frm" method="post">
 	<select id="locale" name="locale">
 	<%-- <option value="ko" <c:if test="${select == 'ko' }">selected</c:if>>한국어</option>
 		<option value="en" <c:if test="${select == 'en' }">selected</c:if>>English</option>

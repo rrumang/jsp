@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/sumCalculation" method="post">
+	<form action="${cp}/sumCalculation" method="post">
 		start<input type="text" name="start" value="2"/> <br>
 		end<input type="text" name="end" value="8"/> <br>
 		<button>제출</button>

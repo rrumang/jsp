@@ -53,7 +53,7 @@
 					<div class="col-sm-8 blog-main">
 						<h2 class="sub-header">사용자상세</h2>
 						
-						<form action="${pageContext.request.contextPath }/userModify" id="frm">
+						<form action="${cp }/userModify" id="frm">
 							<input type="hidden" id="userId" name="userId"/>
 						</form>
 
@@ -62,7 +62,7 @@
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">${path }</label>
 								<div class="col-sm-10">
-									<img id="img" src="${pageContext.request.contextPath }/profile?userId=${vo.userId}"/>
+									<img id="img" src="${cp }/profile?userId=${vo.userId}"/>
 								</div>
 							</div>
 							

@@ -85,7 +85,7 @@
 					<div class="col-sm-8 blog-main">
 						<h2 class="sub-header">사용자등록</h2>
 						
-						<form id="frm" class="form-horizontal" role="form" action="${pageContext.request.contextPath }/userForm" method="post" enctype="multipart/form-data">
+						<form id="frm" class="form-horizontal" role="form" action="${cp }/userForm" method="post" enctype="multipart/form-data">
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">사용자사진</label>
 								<div class="col-sm-10">
