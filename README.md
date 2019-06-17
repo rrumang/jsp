@@ -1,6 +1,7 @@
 #jsp / servlet
 ---
-![ryan.png](./img/ryan.png)
+![Jsp-servlets-seg](https://user-images.githubusercontent.com/50851687/59599686-21a36d80-913a-11e9-91cb-cb3a75ec55ea.png)
+
 
 - parameter와 attribute
 ---
