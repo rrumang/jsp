@@ -1,6 +1,6 @@
 #jsp / servlet
 ---
-![Jsp-servlets-seg.png](./img/Jsp-servlets-seg.png)
+![Jsp-servlets-seg.png](jsp/src/main/webapp/img/ryan.png)
 
 - parameter와 attribute
 ---
