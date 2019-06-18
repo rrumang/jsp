@@ -1,7 +1,3 @@
-﻿/**
- * 전자정부 제공 ARIAUTIL
- * ARIAUtil
- */
 //package crdf.regi.egov.security;
 package kr.or.ddit.encrypt.kisa.aria;
 
@@ -84,9 +80,6 @@ public class ARIAUtil {
 		}
 	}
 
-	/*
-	 *Aria 복호화
-	 */
 	public static String ariaDecrypt(String strHex, String privateKey) 
 	throws InvalidKeyException, UnsupportedEncodingException  {
 		if (strHex==null || strHex.equals("")) return "";
