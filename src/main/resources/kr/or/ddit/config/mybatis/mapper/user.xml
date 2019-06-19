@@ -29,7 +29,7 @@
 	</select>
 	<!--사용자 전체수 조회  -->
 	<select id="usersCnt" resultType="int">
-		select count(*)
+		select /*+ INDEX_FFS(users PK_USERS)*/count(*)
 		from users
 	</select>
 	
