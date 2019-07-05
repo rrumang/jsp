@@ -179,7 +179,7 @@ public class UserDaoTest {
 	public void updateUserTest() throws ParseException{
 		/***Given***/
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		UserVo userVo = new UserVo("대덕쓰", "userTest",  "중앙쓰", "userTest1234", "영민쓰", "204호", "34940", sdf.parse("2019-08-20"));
+		UserVo userVo = new UserVo("대덕쓰", "brown",  "중앙쓰", "userTest1234", "영민쓰", "204호", "34940", sdf.parse("2019-08-20"));
 
 		/***When***/
 		int updateCnt = userDao.updateUser(userVo);

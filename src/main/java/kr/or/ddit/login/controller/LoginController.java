@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.ws.RequestWrapper;
 
 import kr.or.ddit.encrypt.kisa.sha256.KISA_SHA256;
 import kr.or.ddit.user.model.UserVo;
@@ -81,6 +82,8 @@ public class LoginController extends HttpServlet {
 			request.getRequestDispatcher("/main.jsp")
 					.forward(request, response);
 		}
+		@RequestWrappe
+		
 	}
 
 	// 로그인 요청을 처리
